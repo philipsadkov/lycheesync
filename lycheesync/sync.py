@@ -83,8 +83,8 @@ def main(verbose, exclusive_mode, sort_album_by_name, sanitycheck, link, updated
     uid = stat_info.st_uid
     gid = stat_info.st_gid
 
-    user = pwd.getpwuid(uid)[0]
-    group = grp.getgrgid(gid)[0]
+    user = 'root' #pwd.getpwuid(uid)[0]
+    group = 'root' #grp.getgrgid(gid)[0]
 
     conf_data["user"] = user
     conf_data["group"] = group
