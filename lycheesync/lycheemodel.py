@@ -211,24 +211,13 @@ class LycheePhoto:
                         if decode == "FocalLength":
                             self.exif.focal = value[0]
                         if decode == "ISOSpeedRatings":
-                            self.exif.iso = value[0]
+                            self.exif.iso = value
                         if decode == "Model":
                             self.exif.model = value
                         if decode == "ExposureTime":
                             self.exif.exposure = value[0]
                         if decode == "ShutterSpeedValue":
-                            s = value[0]
-                            s = 2 ** s
-                            s = decimal.Decimal(s).quantize(decimal.Decimal('1'), rounding=decimal.ROUND_05UP)
-                            if s <= 1:
-                                s = decimal.Decimal(
-                                    1 /
-                                    float(s)).quantize(
-                                    decimal.Decimal('0.1'),
-                                    rounding=decimal.ROUND_05UP)
-                            else:
-                                s = "1/" + str(s)
-                            self.exif.shutter = str(s) + " s"
+                            self.exif.shutter = "0 s"
 
                         if decode == "DateTimeOriginal":
                             try:
@@ -280,11 +269,8 @@ class LycheePhoto:
                         self.exif.focal = str(self.exif.focal) + " mm"
                     else:
                         self.exif.focal = ""
-
-                    if self.exif.aperture:
-                        self.exif.aperture = 'F' + str(self.exif.aperture)
-                    else:
-                        self.exif.aperture = ""
+                        
+                    self.exif.aperture = ""
 
                     # compute takedate / taketime
                     if self.exif.takedate:
