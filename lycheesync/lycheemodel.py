@@ -199,15 +199,7 @@ class LycheePhoto:
                         if decode == "Make":
                             self.exif.make = value
                         if decode == "MaxApertureValue":
-                            aperture = math.sqrt(2) ** value[0]
-                            try:
-                                aperture = decimal.Decimal(aperture).quantize(
-                                    decimal.Decimal('.1'),
-                                    rounding=decimal.ROUND_05UP)
-                            except Exception as e:
-                                logger.debug("aperture only a few digit after comma: {}".format(aperture))
-                                logger.debug(e)
-                            self.exif.aperture = aperture
+                            self.exif.aperture = 0
                         if decode == "FocalLength":
                             self.exif.focal = value[0]
                         if decode == "ISOSpeedRatings":
