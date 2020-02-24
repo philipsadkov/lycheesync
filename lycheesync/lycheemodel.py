@@ -205,7 +205,7 @@ class LycheePhoto:
                         if decode == "ISOSpeedRatings":
                             self.exif.iso = value
                         if decode == "Model":
-                            self.exif.model = value
+                            self.exif.model = ""
                         if decode == "ExposureTime":
                             self.exif.exposure = value[0]
                         if decode == "ShutterSpeedValue":
