@@ -197,7 +197,7 @@ class LycheePhoto:
                         if decode == "Orientation":
                             self.exif.orientation = value
                         if decode == "Make":
-                            self.exif.make = value
+                            self.exif.make = ""
                         if decode == "MaxApertureValue":
                             self.exif.aperture = 0
                         if decode == "FocalLength":
